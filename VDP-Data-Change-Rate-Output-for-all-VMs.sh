@@ -1,0 +1,1 @@
+mccli client show --recursive | awk 'NR>4' | awk 'NR<2' | awk '{print $2}' |  while read i; do avmgr getl --path="$i";done | awk 'NR>1' | awk '{print $2}'| while read i; do capacity.sh --client="$i" --days=5; done | tee -a ClientRateReport.txt
